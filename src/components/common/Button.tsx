@@ -3,7 +3,14 @@ import RightArrowIcon from '@/assets/icons/right-arrow.svg?react';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   variant?: 'normal' | 'round' | 'withIcon' | 'onlyIcon';
-  color?: 'primary' | 'white' | 'primaryOutlined' | 'darkOutlined' | 'lightOutlined' | 'disabled';
+  color?:
+    | 'primary'
+    | 'white'
+    | 'clear'
+    | 'primaryOutlined'
+    | 'darkOutlined'
+    | 'lightOutlined'
+    | 'disabled';
   icon?: React.ReactNode;
 }
 
@@ -28,6 +35,7 @@ const Button = ({
         ${variant === 'onlyIcon' ? 'size-12 rounded-full' : ''}
         ${color === 'primary' ? 'bg-primary text-white' : ''}
         ${color === 'white' ? 'bg-white text-black' : ' '}
+        ${color === 'clear' ? 'text-white' : ' '}
         ${color === 'primaryOutlined' ? 'border-[1.25px] border-sub bg-primary text-white' : ' '}
         ${color === 'darkOutlined' ? 'border-[1.25px] border-darkgray text-black60' : ' '}
         ${color === 'lightOutlined' ? 'border-[1.25px] border-lightgray text-darkgray' : ' '}
