@@ -1,25 +1,44 @@
 import { ReactNode } from 'react';
-import ProetectedRoute from '@/routes/ProetectedRoute';
+import ProtectedRoute from '@/routes/ProtectedRoute';
 import PublicRoute from '@/routes/PublicRoute';
-import GroupList from '@/pages/GroupList';
-import BungaeList from '@/pages/BungaeList';
-import MyPage from '@/pages/MyPage';
-import Login from '@/pages/Auth/Login';
-import LoginSuccess from '@/pages/Auth/LoginSuccess';
+import Layout from '@/components/layout/Layout';
+import { Login, LoginSuccess } from '@/pages/Auth';
+import { BungaeList, GroupList, MyPage } from '@/pages/My';
+import {
+  BungaeLogContent,
+  GroupCreate,
+  GroupCreateSuccess,
+  GroupHome,
+  HomeContent,
+  StoryContent,
+} from '@/pages/Group';
 
 interface RouteType {
   path: string;
   element: ReactNode;
   layout?: boolean;
+  children?: Omit<RouteType, 'layout'>[];
 }
 
-const proetectedRoutes: RouteType[] = [
+const protectedRoutes: RouteType[] = [
   { path: '/', element: <GroupList />, layout: true },
   { path: '/mybungae', element: <BungaeList />, layout: true },
   { path: '/mypage', element: <MyPage />, layout: true },
+  { path: '/group/post', element: <GroupCreate />, layout: false },
+  { path: '/group/success', element: <GroupCreateSuccess />, layout: false },
+  {
+    path: '/group/:id/*',
+    element: <GroupHome />,
+    layout: false,
+    children: [
+      { path: '', element: <HomeContent /> },
+      { path: 'bungae-log', element: <BungaeLogContent /> },
+      { path: 'story', element: <StoryContent /> },
+    ],
+  },
 ].map((route) => ({
   ...route,
-  element: <ProetectedRoute>{route.element}</ProetectedRoute>,
+  element: <ProtectedRoute>{route.element}</ProtectedRoute>,
 }));
 
 const publicRoutes: RouteType[] = [
@@ -31,9 +50,12 @@ const publicRoutes: RouteType[] = [
 }));
 
 const routes: RouteType[] = [
-  ...proetectedRoutes,
+  {
+    path: '/',
+    element: <Layout />,
+    children: protectedRoutes.filter((route) => route.layout),
+  },
+  ...protectedRoutes.filter((route) => !route.layout),
   ...publicRoutes,
-  // { path : "*", element: <Navigate to="/" replace />},
 ];
-
 export default routes;

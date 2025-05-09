@@ -1,9 +1,17 @@
 import RightArrowIcon from '@/assets/icons/right-arrow.svg?react';
+import DownArrowIcon from '@/assets/icons/down-arrow.svg?react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
-  variant?: 'normal' | 'round' | 'withIcon' | 'onlyIcon';
-  color?: 'primary' | 'white' | 'primaryOutlined' | 'darkOutlined' | 'lightOutlined' | 'disabled';
+  variant?: 'normal' | 'round' | 'roundThin' | 'withIcon' | 'onlyIcon';
+  color?:
+    | 'primary'
+    | 'white'
+    | 'clear'
+    | 'primaryOutlined'
+    | 'darkOutlined'
+    | 'lightOutlined'
+    | 'disabled';
   icon?: React.ReactNode;
 }
 
@@ -21,13 +29,15 @@ const Button = ({
     <button
       disabled={isDisabled}
       type="button"
-      className={`inline-flex items-center justify-center focus:outline-none min-w-max
+      className={`inline-flex items-center justify-center focus:outline-none min-w-max cursor-pointer
         ${variant === 'normal' ? 'w-full h-10 rounded-md font-semibold' : 'text-xs font-medium'}
         ${variant === 'round' ? 'w-fit h-fit px-3 py-2 rounded-full' : ''}
+        ${variant === 'roundThin' ? 'w-fit px-2.5 py-1 rounded-full' : ''}
         ${variant === 'withIcon' ? 'w-full h-fit px-4 py-2 rounded-md' : ''}
         ${variant === 'onlyIcon' ? 'size-12 rounded-full' : ''}
         ${color === 'primary' ? 'bg-primary text-white' : ''}
         ${color === 'white' ? 'bg-white text-black' : ' '}
+        ${color === 'clear' ? 'text-white' : ' '}
         ${color === 'primaryOutlined' ? 'border-[1.25px] border-sub bg-primary text-white' : ' '}
         ${color === 'darkOutlined' ? 'border-[1.25px] border-darkgray text-black60' : ' '}
         ${color === 'lightOutlined' ? 'border-[1.25px] border-lightgray text-darkgray' : ' '}
@@ -49,6 +59,11 @@ const Button = ({
       {variant === 'withIcon' && (
         <span>
           <RightArrowIcon className={`size-3 ml-2 ${color === 'white' ? 'text-black60' : ' '}`} />
+        </span>
+      )}
+      {variant === 'roundThin' && (
+        <span>
+          <DownArrowIcon className={`size-3.5 mt-0.5 ml-1 text-black84`} />
         </span>
       )}
     </button>
