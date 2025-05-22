@@ -43,7 +43,7 @@ export default function GroupHome() {
 
   return (
     <div className="bg-background h-screen overflow-y-auto overscroll-none">
-      <div className={`absolute top-0 w-full z-1 ${!isVisible && 'bg-white'} `}>
+      <div className={`absolute top-0 w-full z-[var(--zml)] ${!isVisible && 'bg-white'} `}>
         <Header
           pagename={!isVisible ? group.Name : ''}
           variant="sub"
@@ -60,7 +60,10 @@ export default function GroupHome() {
           style={{ backgroundImage: `url(${group.ProfileImage})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 from-10% via-black/0 to-black/20 to-95% "></div>
-          <div ref={targetRef} className="z-1 w-full px-4 font-bold text-xl text-white truncate">
+          <div
+            ref={targetRef}
+            className="z-[var(--zml)] w-full px-4 font-bold text-xl text-white truncate"
+          >
             {group.Name}
           </div>
         </div>
@@ -68,7 +71,7 @@ export default function GroupHome() {
 
       <div
         ref={containerRef}
-        className={`w-full z-2 ${isVisible ? 'relative' : 'sticky top-11 bg-white'}`}
+        className={`w-full z-[var(--zmid)] ${isVisible ? 'relative' : 'sticky top-11 bg-white'}`}
       >
         <TabMenu
           tabs={groupTabs.map((tab) => tab.name)}

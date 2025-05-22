@@ -75,7 +75,7 @@ const BungaeLogItem = ({
           </div>
         </div>
         <div className="relative aspect-[4/5]">
-          <div className="absolute inset-0 flex justify-center items-center z-1 text-white text-center text-shadow-xs text-shadow-black60/15 bg-darkgray">
+          <div className="absolute inset-0 flex justify-center items-center z-[var(--zlow)] text-white text-center text-shadow-xs text-shadow-black60/15 bg-darkgray">
             {status === '모집 중' ? (
               <div className="flex flex-col items-center gap-1.5">
                 <LoadingIcon />

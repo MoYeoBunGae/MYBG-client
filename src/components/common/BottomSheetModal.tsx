@@ -13,7 +13,7 @@ const BottomSheetModal = ({ isOpen, onClose, children }: BottomSheetModalProps) 
       {isOpen && (
         <>
           <motion.div
-            className="fixed inset-0 bg-black/35 z-1"
+            className="fixed inset-0 bg-black/35 z-[calc(var(--zhigh)-5)]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -21,7 +21,7 @@ const BottomSheetModal = ({ isOpen, onClose, children }: BottomSheetModalProps) 
           />
 
           <motion.div
-            className="fixed left-0 bottom-0 w-full z-2 px-6 pt-5 pb-16 rounded-t-[24px] bg-white max-h-[65vh] overflow-y-auto"
+            className="fixed left-0 bottom-0 w-full z-[var(--zhigh)] px-6 pt-5 pb-16 rounded-t-[24px] bg-white max-h-[65vh] overflow-y-auto"
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             exit={{ y: '100%' }}

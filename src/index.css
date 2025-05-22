@@ -25,6 +25,14 @@
   --shadow-nav: 0px 0px 12px 0px rgba(0, 0, 0, 0.04);
   --shadow-first: 2px 2px 6px 0px rgba(0, 0, 0, 0.04);
   --shadow-second: 2px 2px 6px 0px rgba(122, 171, 246, 0.04);
+
+  --zbase: 0;
+  --zlow: 10;
+  --zml: 20;
+  --zmid: 30;
+  --zmh: 50;
+  --zhigh: 70;
+  --ztop: 100;
 }
 
 /* Font */
