@@ -30,7 +30,7 @@ const Button = ({
       disabled={isDisabled}
       type="button"
       className={`inline-flex items-center justify-center focus:outline-none min-w-max cursor-pointer
-        ${variant === 'normal' ? 'w-full h-10 rounded-md font-semibold' : 'text-xs font-medium'}
+        ${variant === 'normal' ? 'w-full h-11 rounded-md font-semibold' : 'text-xs font-medium'}
         ${variant === 'round' ? 'w-fit h-fit px-3 py-2 rounded-full' : ''}
         ${variant === 'roundThin' ? 'w-fit px-2.5 py-1 rounded-full' : ''}
         ${variant === 'withIcon' ? 'w-full h-fit px-4 py-2 rounded-md' : ''}
