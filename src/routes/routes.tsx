@@ -24,7 +24,7 @@ const protectedRoutes: RouteType[] = [
   { path: '/', element: <GroupList />, layout: true },
   { path: '/mybungae', element: <BungaeList />, layout: true },
   { path: '/mypage', element: <MyPage />, layout: true },
-  { path: '/group/post', element: <GroupCreate />, layout: false },
+  { path: '/group/create', element: <GroupCreate />, layout: false },
   { path: '/group/success', element: <GroupCreateSuccess />, layout: false },
   {
     path: '/group/:id/*',

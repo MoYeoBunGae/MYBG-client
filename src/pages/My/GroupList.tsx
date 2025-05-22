@@ -37,7 +37,7 @@ export default function GroupList() {
             variant="withIcon"
             color="white"
             icon={<PeopleEmoji />}
-            onClick={() => navigate('/group/post')}
+            onClick={() => navigate('/group/create')}
           />
           <Button
             text="초대 코드로 검색"
