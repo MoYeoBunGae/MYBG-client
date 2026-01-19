@@ -12,6 +12,7 @@ import {
   HomeContent,
   StoryContent,
 } from '@/pages/Group';
+import { BungaeCreate } from '@/pages/Bungae';
 
 interface RouteType {
   path: string;
@@ -35,6 +36,11 @@ const protectedRoutes: RouteType[] = [
       { path: 'bungae-log', element: <BungaeLogContent /> },
       { path: 'story', element: <StoryContent /> },
     ],
+  },
+  {
+    path: '/group/:id/bungae/create',
+    element: <BungaeCreate />,
+    layout: false,
   },
 ].map((route) => ({
   ...route,
